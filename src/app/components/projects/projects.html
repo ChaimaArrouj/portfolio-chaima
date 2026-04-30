@@ -1,0 +1,33 @@
+<section class="projects" id="projects">
+  <div class="bg-glow"></div>
+  <div class="section-header">
+    <h2>{{ lang.t().projects_title }}</h2>
+    <div class="underline"></div>
+    <p class="section-sub">{{ lang.t().projects_sub }}</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let p of lang.t().projects; let i = index">
+      <div class="project-img">
+        <img [src]="images[i]" [alt]="p.titre"
+             (error)="onImgError($event, gradients[i])" />
+        <div class="overlay">
+         <a [href]="githubLinks[i]" target="_blank" rel="noopener" class="voir-btn">
+  {{ lang.t().projects_btn }}
+           </a>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3>{{ p.titre }}</h3>
+        <p>{{ getDescription(p.description, i) }}</p>
+        <button *ngIf="isLong(p.description)" class="toggle-btn" (click)="toggleDescription(i)">
+          {{ expandedProjects[i] ? lang.t().projects_voir_moins : lang.t().projects_voir_plus }}
+        </button>
+        <div class="tags">
+          <span class="tag" *ngFor="let tag of tags[i]" [style.background]="gradients[i]">
+            {{ tag }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

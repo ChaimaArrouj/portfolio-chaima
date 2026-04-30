@@ -1,0 +1,129 @@
+.skills {
+  padding: 100px 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  transition: background 0.4s;
+}
+
+.bg-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: var(--cyan);
+  filter: blur(180px);
+  opacity: 0.05;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.section-header { text-align: center; margin-bottom: 50px; }
+
+.section-header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.section-header h2 span { color: var(--cyan); }
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background: var(--cyan);
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+
+.section-sub {
+  color: var(--gray);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tab-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
+.tab-btn.active {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--bg);
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0,212,255,0.4);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s, background 0.4s;
+  cursor: default;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0,212,255,0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.skill-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.skill-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.skill-info p { font-size: 0.8rem; font-weight: 500; text-transform: capitalize; }

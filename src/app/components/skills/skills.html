@@ -1,0 +1,39 @@
+<section class="skills" id="skills">
+  <div class="bg-glow"></div>
+
+  <!-- Header traduit -->
+  <div class="section-header">
+    <h2>{{ lang.t().skills_title }}</h2>
+    <div class="underline"></div>
+    <p class="section-sub">{{ lang.t().skills_sub }}</p>
+  </div>
+
+  <!-- Onglets traduits — utilise l'index -->
+  <div class="tabs">
+    <button
+      *ngFor="let cat of categories; let i = index"
+      class="tab-btn"
+      [class.active]="activeIndex === i"
+      (click)="changerCategorie(i)">
+      <span>{{ cat.icone }}</span> {{ cat.label }}
+    </button>
+  </div>
+
+  <!-- Grille compétences — inchangée -->
+  <div class="skills-grid">
+    <div class="skill-card" *ngFor="let skill of competencesAffichees">
+      <div class="skill-icon"
+           [style.background]="skill.couleur + '22'"
+           [style.border-color]="skill.couleur + '55'">
+        <span>{{ skill.icone }}</span>
+      </div>
+      <div class="skill-info">
+        <h4>{{ skill.nom }}</h4>
+        <p [style.color]="skill.couleur">
+          {{ categories[activeIndex]?.label }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>

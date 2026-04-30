@@ -1,0 +1,24 @@
+<nav class="navbar">
+   <button class="logo-circle" (click)="scrollTo('home')">
+    <span class="inner-circle"></span>
+  </button>
+  <ul class="nav-links">
+    <li *ngFor="let link of links">
+      <a (click)="scrollTo(link.id)">{{ link.label }}</a>
+    </li>
+  </ul>
+   <div class="nav-actions">
+    <!-- Bouton Thème -->
+    <button class="theme-toggle" (click)="theme.basculer()">
+      <span *ngIf="theme.isDark()">☀️</span>
+      <span *ngIf="!theme.isDark()">🌙</span>
+    </button>
+
+   
+  </div>
+ <button class="lang-btn" (click)="lang.basculer()">
+  <span class="lang-icon">🌐</span>
+  <span class="lang-text">{{ lang.langue() === 'fr' ? 'EN' : 'FR' }}</span>
+  <span class="lang-indicator"></span>
+</button>
+</nav>

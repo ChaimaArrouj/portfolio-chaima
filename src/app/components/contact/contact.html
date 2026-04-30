@@ -1,0 +1,39 @@
+<section class="contact" id="contact">
+  <div class="bg-glow"></div>
+  <div class="section-header">
+    <h2>{{ lang.t().contact_title }}</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-left">
+      <h3 class="talk">{{ lang.t().contact_talk }}</h3>
+      <p class="contact-desc">{{ lang.t().contact_desc }}</p>
+      <div class="contact-infos">
+        <div class="info-item" *ngFor="let info of infos">
+          <span class="info-icone">{{ info.icone }}</span>
+          <a *ngIf="info.lien; else texte" [href]="info.lien" target="_blank" class="info-label link">{{ info.label }}</a>
+          <ng-template #texte><span class="info-label">{{ info.label }}</span></ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="success-msg" *ngIf="envoye">{{ lang.t().contact_success }}</div>
+      <div class="error-msg"   *ngIf="erreur">{{ lang.t().contact_error }}</div>
+      <div class="form-group">
+        <label>{{ lang.t().contact_nom }}</label>
+        <input type="text" [(ngModel)]="nom" [placeholder]="lang.t().contact_ph_nom" [disabled]="chargement" />
+      </div>
+      <div class="form-group">
+        <label>{{ lang.t().contact_email }}</label>
+        <input type="email" [(ngModel)]="email" [placeholder]="lang.t().contact_ph_email" [disabled]="chargement" />
+      </div>
+      <div class="form-group">
+        <label>{{ lang.t().contact_msg }}</label>
+        <textarea [(ngModel)]="message" [placeholder]="lang.t().contact_ph_msg" rows="6" [disabled]="chargement"></textarea>
+      </div>
+      <button class="submit-btn" (click)="envoyer()" [disabled]="chargement">
+        {{ chargement ? lang.t().contact_sending : lang.t().contact_btn }}
+      </button>
+    </div>
+  </div>
+</section>
